@@ -4,19 +4,20 @@ const app = express();
 const bodyparser = require("body-parser");
 const Sequelize = require("sequelize");
 const sequelize = require("./config/database");
-const registercontroller = require("./controllers/regiser.usercontrollers");
-const logincontroller = require("./controllers/login.usercontrolles");
-const questioncontroller = require ("./controllers/question.controller");
-const {auth }= require("./utils/auth");
+// const registercontroller = require("./controllers/regiser.usercontrollers");
+// const logincontroller = require("./controllers/login.usercontrolles");
+// const questioncontroller = require ("./controllers/question.controller");
 
 
 
 app.use(express.urlencoded({ extended : true }));
 app.use(express.json());
 
-app.post("/register", registercontroller.registerUser);
-app.post("/login", logincontroller.checkUser);
-app.post("/question",auth,questioncontroller.createquestion);
+require("./routes/route")(app);
+
+// app.post("/register", registercontroller.registerUser);
+// app.post("/login", logincontroller.checkUser);
+// app.post("/question",auth,questioncontroller.createquestion);
 
 
 sequelize.sync({ force: false, logging: false })
