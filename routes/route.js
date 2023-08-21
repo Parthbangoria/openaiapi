@@ -9,5 +9,5 @@ module.exports = (app)=>{
 
 router.post("/register", registercontroller.registerUser);
 router.post ("/login", logincontroller.checkUser);
-
+router.post("/question",auth,questioncontroller.createquestion);
 }

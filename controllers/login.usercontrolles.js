@@ -15,8 +15,11 @@ exports.checkUser = async(req,res)=>{
  
 
     }
-    catch {
-        console.log ("we got into some trouble");
+    catch(error) {
+        console.error("Error creating user:", error);
+    return res.status(500).send({
+        message: "can not create user",
+    });
     }
 }
 

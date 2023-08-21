@@ -21,7 +21,10 @@ exports.createquestion = async (req,res) =>{
 
      } catch (error) {
 
-        res.send(error);
+        console.error("Error creating user:", error);
+        return res.status(500).send({
+            message: "can not create user",
+        });
         
      }
 };

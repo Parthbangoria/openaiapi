@@ -28,7 +28,8 @@ else if ( createquestion ){
 }
      
     } catch (error) {
-       console.log(error);   
+        console.error("Error creating user:", error);
+        throw error; 
     }
     
       

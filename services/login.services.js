@@ -20,7 +20,9 @@ exports.postLoginData = async (data)=>{
         return(token);
        }
        else {
-           console.log("there is an error.")
+        console.error("Error creating user:", error);
+        throw error; 
+    
        }
    }
 };
